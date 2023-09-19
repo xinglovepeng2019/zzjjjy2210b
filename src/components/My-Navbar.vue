@@ -1,0 +1,61 @@
+<template>
+    <van-nav-bar
+        :title="title"
+        :left-text="leftText"
+        :left-arrow="isLarrow"
+        @click-left="onClickLeft"
+        :right-text="isRarrow"
+        @click-right="onClickRight"
+    />
+</template>
+
+<script>
+    export default {
+        name:"myNavBar",
+        props:{
+            title:{
+                type:String,
+                default:""
+            },
+            leftText:{
+                type:String,
+                default:""
+            },
+            isLarrow:{
+                type:Boolean,
+                default:false
+            },
+            isRarrow:{
+                type:Boolean,
+                default:false
+            },
+            rightText:{
+                type:String,
+                default:""
+            }
+        },
+        methods:{
+            onClickLeft(){
+                this.$emit('leftEvent')
+            },
+            onClickRight(){
+                this.$emit('rightEvent')
+            }
+        }
+    }
+</script>
+
+<style lang="less" scoped>
+/* 
+
+ <my-nav-bar 
+     title="转账" 
+     rightText=""
+     leftText=""
+     :isLarrow="true" 
+     @leftEvent="onClickLeft"
+     @rightEvent=""
+     isRarrow=""
+     >
+*/
+</style>
